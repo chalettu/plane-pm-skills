@@ -1,0 +1,3 @@
+interface:
+  display_name: "Plane CLI Adapter"
+  short_description: "Safely operate Plane through the compiled CLI"

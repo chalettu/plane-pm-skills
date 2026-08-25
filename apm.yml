@@ -1,0 +1,9 @@
+name: plane-pm-skills
+version: 0.1.0
+description: Three portable skills for coordinating AI delivery work in Plane.
+license: UNLICENSED
+type: skill
+includes:
+  - .apm/skills/plane-delivery-manager/
+  - .apm/skills/plane-cli-adapter/
+  - .apm/skills/plane-work-contributor/
