@@ -4,13 +4,16 @@ This skill targets `mggarofalo/plane-cli`, a compiled Go client whose executable
 is named `plane`.
 
 Complete [the environment setup](setup.md) before using this operation guide.
+Run `../scripts/preflight.sh` from this reference directory, or
+`scripts/preflight.sh` from the skill root, before the first Plane operation.
 
 ## Connection check
 
-Use the version command, then inspect authentication status and the current user
-before work. Do not echo environment variables or place API keys in project
-files. If a human chooses the interactive login flow instead of environment
-variables, let that human supply credentials directly.
+Use the bundled preflight rather than improvising an authentication probe. Do
+not echo environment variables or place API keys in project files. If a human
+chooses the interactive login flow instead of environment variables, let that
+human supply credentials directly; the adapter and preflight must never trigger
+login.
 
 ## Safe interaction pattern
 

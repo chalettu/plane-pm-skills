@@ -15,6 +15,11 @@ is installed and the required environment is configured before a workflow
 depends on it. Use the authenticated workspace and explicit project context. Do
 not expose API tokens in command output, tickets, comments, or repository files.
 
+Run `scripts/preflight.sh` before the first Plane operation in a session. Treat
+any failure as a prerequisite blocker and report its remediation; do not attempt
+login or a Plane write. The check is read-only and suppresses authentication
+details rather than echoing account metadata or secrets.
+
 Read [the operation guide](references/operation-guide.md) when interacting with
 Plane.
 

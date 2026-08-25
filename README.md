@@ -49,6 +49,14 @@ or CI use, supply `PLANE_API_KEY`, `PLANE_URL`, and `PLANE_WORKSPACE`. See the
 placeholder-only examples, configuration precedence, optional profile settings,
 and secure secret-handling options.
 
+APM packages the adapter skill but cannot install its arbitrary external
+`plane` binary. After installing and configuring that required system dependency,
+run the adapter's non-mutating
+[`preflight.sh`](.apm/skills/plane-cli-adapter/scripts/preflight.sh). It verifies
+the executable, readable version, authentication readiness, instance URL, and a
+resolvable workspace. It never logs in or writes to Plane, and failures include
+a concise remediation step.
+
 The adapter follows a safe pattern:
 
 1. Read the current Plane state using structured output.

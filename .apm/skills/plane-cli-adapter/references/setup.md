@@ -69,14 +69,29 @@ global `--workspace` flag for a deliberately scoped one-command override.
 
 ## Safe verification
 
-After configuration, verify without displaying secrets:
+APM installs this skill but cannot install the arbitrary external `plane`
+binary. Treat `mggarofalo/plane-cli` as a required system dependency. After an
+operator installs and configures it, run the bundled preflight from the installed
+skill directory:
+
+```sh
+./scripts/preflight.sh
+```
+
+The script only checks executable discovery, `plane --version`, the read-only
+`plane auth status`, and resolution of the instance URL and workspace. It
+suppresses status details, never invokes login, and never calls a command that
+reads or writes Plane work data. A failure names the missing prerequisite and
+gives a remediation step.
+
+For manual diagnosis, use only these non-mutating commands and avoid displaying
+their output in shared logs:
 
 ```sh
 plane --version
 plane auth status
-plane me
 ```
 
-Do not run these checks in logs that could expose account or workspace metadata.
-The adapter should remain read-only until identity, instance, and workspace are
-confirmed.
+The adapter should remain inactive until the preflight succeeds. `plane me`
+performs an API read and is therefore intentionally outside the prerequisite
+preflight.
