@@ -3,11 +3,14 @@
 This skill targets `mggarofalo/plane-cli`, a compiled Go client whose executable
 is named `plane`.
 
+Complete [the environment setup](setup.md) before using this operation guide.
+
 ## Connection check
 
 Use the version command, then inspect authentication status and the current user
-before work. Use the documented interactive login flow where a user must supply
-credentials. Do not place API keys in project files.
+before work. Do not echo environment variables or place API keys in project
+files. If a human chooses the interactive login flow instead of environment
+variables, let that human supply credentials directly.
 
 ## Safe interaction pattern
 

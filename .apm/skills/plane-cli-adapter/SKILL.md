@@ -10,10 +10,10 @@ It executes an approved delivery decision; it does not make the decision.
 
 ## Preconditions
 
-Confirm that the `plane` binary is installed and authentication works before a
-workflow depends on it. Use the authenticated workspace and explicit project
-context. Do not expose API tokens in command output, tickets, comments, or
-repository files.
+Read [the setup guide](references/setup.md), then confirm that the `plane` binary
+is installed and the required environment is configured before a workflow
+depends on it. Use the authenticated workspace and explicit project context. Do
+not expose API tokens in command output, tickets, comments, or repository files.
 
 Read [the operation guide](references/operation-guide.md) when interacting with
 Plane.

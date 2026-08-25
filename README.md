@@ -43,7 +43,11 @@ is a good assignment match instead of assigning by generic role alone.
 ## Plane integration
 
 The adapter targets the selected compiled Go-based `plane-cli` client. It expects
-the `plane` binary to be installed and authenticated before it operates.
+the `plane` binary to be installed and configured before it operates. For agent
+or CI use, supply `PLANE_API_KEY`, `PLANE_URL`, and `PLANE_WORKSPACE`. See the
+[Plane CLI setup guide](.apm/skills/plane-cli-adapter/references/setup.md) for
+placeholder-only examples, configuration precedence, optional profile settings,
+and secure secret-handling options.
 
 The adapter follows a safe pattern:
 
@@ -55,6 +59,8 @@ The adapter follows a safe pattern:
 6. Read the record back to confirm the intended result.
 
 The adapter does not delete Plane data as part of normal project management.
+No Plane credentials belong in this repository; local environment files and
+Plane configuration artifacts are ignored by Git.
 
 ## APM package
 
@@ -67,4 +73,3 @@ The manifest declares the current package version as `0.1.0`, explicitly lists
 the three publishable skill bundles, and records the package as `UNLICENSED`
 until the owner selects a distribution license. Packing or publishing should be
 preceded by `apm compile --validate` and `apm pack --dry-run --verbose`.
-
