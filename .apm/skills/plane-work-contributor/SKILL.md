@@ -32,6 +32,9 @@ needed to execute it. Report the blocker instead of inventing missing decisions.
 Read the item back after each update. Use the configured workflow states; do not
 invent new states or status meanings.
 
+## Notify the orchestrator
+After moving an owned item to review or completed status with its evidence recorded in Plane, post a message in the project channel and @mention the project manager.  Look up the project manager in agent memory.   You should @mention them with the item's link, a one-line summary of what was delivered, and where the evidence lives. This is the only case where a routine status change requires a channel message — do not tag on every status transition, only on reaching review/completed, or when escalating a blocker per the existing "Escalate to the delivery manager" section.
+
 ## Escalate to the delivery manager
 
 Do not change scope, priority, target date, owner, dependencies, estimate, or
