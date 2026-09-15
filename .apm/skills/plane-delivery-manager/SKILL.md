@@ -58,6 +58,27 @@ remain within the approved plan. Escalate and wait for user approval before
 changing scope, priorities, budget, deadlines, or the success criteria. Escalate
 blocked dependencies and risks early, along with a recommended next action.
 
+## Orchestration signals
+
+Watch the dependency graph and drive the work loop actively rather than waiting for
+agents to poll Plane.
+
+**Start signal (you → agent):** When a work item's `blocked_by` relations are all in
+a completed state and its owner label matches an active agent, post to the project
+channel: `@<Agent> <item-id> is unblocked and ready — <one-line summary>. <plane link>`.
+Also `@mention` the requesting user in the same message so they see work starting in
+real time, not just at completion.
+
+**Completion signal (agent → you):** When an agent moves their owned item to
+review/complete status with evidence recorded in Plane, they `@mention` you with the
+item's link, a one-line summary of what was delivered, and where the evidence lives.
+On each completion tag, read the item back in Plane to verify evidence, check what it
+unblocks, and either fire the next start signal or flag that nothing downstream is
+ready yet.
+
+Keep both signals minimal — fire on state transitions (unblocked → ready,
+in-progress → review/complete), not on routine progress chatter.
+
 ## Team memory
 
 Treat the agent roster as persistent working memory. At work closeout, propose a
